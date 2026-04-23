@@ -1,0 +1,89 @@
+.typora-readonly-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 28px;
+  z-index: 2147483600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 84px;
+  height: 38px;
+  padding: 0 13px 0 10px;
+  border: 1px solid var(--window-border, rgba(127, 127, 127, 0.35));
+  border-radius: 999px;
+  color: var(--text-color, #222);
+  background: color-mix(in srgb, var(--bg-color, #fff) 88%, var(--item-hover-bg-color, #ddd));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  font: 600 13px/1 var(--font-family, sans-serif);
+  opacity: 0.9;
+  transition: transform 140ms ease, opacity 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.typora-readonly-toggle:hover,
+.typora-readonly-toggle:focus-visible {
+  opacity: 1;
+  transform: translateY(-1px);
+  background: var(--item-hover-bg-color, rgba(127, 127, 127, 0.18));
+  outline: none;
+}
+
+.typora-readonly-toggle.is-on {
+  border-color: color-mix(in srgb, var(--text-color, #222) 35%, transparent);
+}
+
+.typora-readonly-toggle-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  min-width: 26px;
+  height: 24px;
+  border-radius: 999px;
+  color: var(--bg-color, #fff);
+  background: var(--text-color, #222);
+}
+
+.typora-readonly-toggle:not(.is-on) .typora-readonly-toggle-icon {
+  color: var(--text-color, #222);
+  background: var(--item-hover-bg-color, rgba(127, 127, 127, 0.18));
+}
+
+.typora-readonly-toggle-icon svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+.typora-readonly-toggle-text {
+  white-space: nowrap;
+}
+
+.typora-readonly-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 80px;
+  z-index: 2147483600;
+  padding: 9px 14px;
+  border: 1px solid var(--window-border, rgba(127, 127, 127, 0.35));
+  border-radius: 999px;
+  color: var(--text-color, #222);
+  background: color-mix(in srgb, var(--bg-color, #fff) 92%, var(--item-hover-bg-color, #ddd));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  font: 500 13px/1 var(--font-family, sans-serif);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 6px);
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.typora-readonly-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+body.typora-readonly-mode-on #write,
+body.typora-readonly-mode-on #typora-source,
+body.typora-readonly-mode-on .typora-sourceview {
+  caret-color: transparent;
+}

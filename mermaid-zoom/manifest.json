@@ -1,0 +1,16 @@
+{
+  "id": "local.mermaid-zoom",
+  "name": "Mermaid Zoom",
+  "description": "Show a hover button on rendered Mermaid diagrams and open a zoomable preview.",
+  "author": "local",
+  "authorUrl": "",
+  "repo": "",
+  "version": "0.1.7",
+  "minAppVersion": "1.5.0",
+  "minCoreVersion": "2.5.19",
+  "platforms": [
+    "win32",
+    "linux",
+    "darwin"
+  ]
+}

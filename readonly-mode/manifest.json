@@ -1,0 +1,16 @@
+{
+  "id": "local.readonly-mode",
+  "name": "Read-only Mode",
+  "description": "Prevent rendered Typora content from switching into edit/source mode while keeping navigation usable.",
+  "author": "local",
+  "authorUrl": "",
+  "repo": "",
+  "version": "0.1.1",
+  "minAppVersion": "1.5.0",
+  "minCoreVersion": "2.5.19",
+  "platforms": [
+    "win32",
+    "linux",
+    "darwin"
+  ]
+}

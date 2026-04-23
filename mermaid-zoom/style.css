@@ -1,0 +1,213 @@
+.mermaid-zoom-host {
+  position: relative;
+}
+
+.mermaid-zoom-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 20;
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--window-border, rgba(100, 116, 139, 0.28));
+  border-radius: 999px;
+  background: var(--bg-color, #fff);
+  background: color-mix(in srgb, var(--bg-color, #fff) 82%, transparent);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.14);
+  color: var(--text-color, #24292f);
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: opacity 140ms ease, transform 140ms ease, background 140ms ease, box-shadow 140ms ease;
+  backdrop-filter: blur(10px);
+}
+
+.mermaid-zoom-host:hover .mermaid-zoom-btn,
+.mermaid-zoom-btn:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mermaid-zoom-btn:hover {
+  background: var(--item-hover-bg-color, rgba(100, 116, 139, 0.08));
+  background: var(--item-hover-bg-color, color-mix(in srgb, var(--bg-color, #fff) 70%, var(--text-color, #24292f) 8%));
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.2);
+}
+
+.mermaid-zoom-btn::after {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 10px);
+  max-width: 220px;
+  padding: 5px 8px;
+  border: 1px solid var(--window-border, rgba(100, 116, 139, 0.24));
+  border-radius: 7px;
+  background: var(--bg-color, #fff);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  color: var(--text-color, #24292f);
+  content: attr(data-tooltip);
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(4px, -50%);
+  transition: opacity 140ms ease, transform 140ms ease;
+  white-space: nowrap;
+}
+
+.mermaid-zoom-btn:hover::after,
+.mermaid-zoom-btn:focus-visible::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.mermaid-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(15, 23, 42, 0.42);
+  background: color-mix(in srgb, var(--bg-color, #fff) 30%, rgba(15, 23, 42, 0.54));
+  backdrop-filter: blur(6px);
+}
+
+.mermaid-zoom-dialog {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: min(94vw, 1600px);
+  height: min(92vh, 1100px);
+  overflow: visible;
+  border: 1px solid var(--window-border, rgba(100, 116, 139, 0.22));
+  border-radius: 14px;
+  background: var(--bg-color, #fff);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
+}
+
+.mermaid-zoom-toolbar {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--window-border, rgba(100, 116, 139, 0.2));
+  background: var(--side-bar-bg-color, var(--bg-color, #fff));
+  color: var(--text-color, #24292f);
+  overflow: visible;
+  user-select: none;
+}
+
+.mermaid-zoom-hint {
+  grid-column: 2;
+  justify-self: center;
+  font-size: 15px;
+  line-height: 1.35;
+  opacity: 0.78;
+}
+
+.mermaid-zoom-toolbar-btn {
+  position: relative;
+  justify-self: end;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--window-border, rgba(100, 116, 139, 0.24));
+  border-radius: 999px;
+  background: var(--item-hover-bg-color, rgba(100, 116, 139, 0.12));
+  background: var(--item-hover-bg-color, color-mix(in srgb, var(--bg-color, #fff) 78%, var(--text-color, #24292f) 12%));
+  color: var(--text-color, #24292f);
+  cursor: pointer;
+  font-size: 21px;
+  line-height: 1;
+  padding: 0;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.mermaid-zoom-toolbar-btn:first-of-type {
+  grid-column: 3;
+  margin-left: auto;
+  margin-right: 48px;
+}
+
+.mermaid-zoom-toolbar-btn:last-of-type {
+  grid-column: 3;
+  position: absolute;
+  right: 14px;
+}
+
+.mermaid-zoom-toolbar-btn:hover {
+  background: var(--item-hover-bg-color, rgba(100, 116, 139, 0.08));
+  background: var(--item-hover-bg-color, color-mix(in srgb, var(--bg-color, #fff) 68%, var(--text-color, #24292f) 18%));
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+}
+
+.mermaid-zoom-toolbar-btn::after {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  z-index: 10;
+  padding: 4px 7px;
+  border: 1px solid var(--window-border, rgba(100, 116, 139, 0.24));
+  border-radius: 7px;
+  background: var(--bg-color, #fff);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  color: var(--text-color, #24292f);
+  content: attr(data-tooltip);
+  font-size: 13px;
+  line-height: 1.35;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 140ms ease, transform 140ms ease;
+  white-space: nowrap;
+}
+
+.mermaid-zoom-toolbar-btn:hover::after,
+.mermaid-zoom-toolbar-btn:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mermaid-zoom-viewport {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 0 0 14px 14px;
+  cursor: grab;
+  background:
+    linear-gradient(rgba(100, 116, 139, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 116, 139, 0.08) 1px, transparent 1px),
+    var(--bg-color, #fff);
+  background:
+    linear-gradient(color-mix(in srgb, var(--text-color, #24292f) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--text-color, #24292f) 7%, transparent) 1px, transparent 1px),
+    var(--bg-color, #fff);
+  background-size: 24px 24px;
+  touch-action: none;
+}
+
+.mermaid-zoom-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.mermaid-zoom-content {
+  position: absolute;
+  display: inline-block;
+  padding: 24px;
+  border-radius: 10px;
+  background: var(--bg-color, #fff);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.12);
+}
+
+.mermaid-zoom-svg {
+  display: block;
+  max-width: none !important;
+  max-height: none !important;
+}
