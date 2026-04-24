@@ -1,7 +1,7 @@
 {
-  "id": "readonly-mode",
-  "name": "Read-only Mode",
-  "description": "Prevent rendered Typora content from switching into edit/source mode while keeping navigation usable.",
+  "id": "document-nav",
+  "name": "Document Nav",
+  "description": "Show floating buttons for jumping to the top or bottom of the current Typora document.",
   "author": "js",
   "authorUrl": "",
   "repo": "",

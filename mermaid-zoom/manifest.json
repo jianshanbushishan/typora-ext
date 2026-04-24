@@ -1,8 +1,8 @@
 {
-  "id": "local.mermaid-zoom",
+  "id": "mermaid-zoom",
   "name": "Mermaid Zoom",
   "description": "Show a hover button on rendered Mermaid diagrams and open a zoomable preview.",
-  "author": "local",
+  "author": "js",
   "authorUrl": "",
   "repo": "",
   "version": "0.1.7",

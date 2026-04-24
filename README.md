@@ -2,8 +2,9 @@
 
 这个仓库整理了我日常使用的 Typora 增强内容：
 
-- `mermaid-zoom/`：基于 [typora-community-plugin](https://github.com/typora-community-plugin/typora-community-plugin) 开发的 Mermaid 图表放大预览插件。
-- `readonly-mode/`：基于 [typora-community-plugin](https://github.com/typora-community-plugin/typora-community-plugin) 开发的只读模式插件。
+- `mermaid-zoom/`：基于 [typora-community-plugin](https://github.com/typora-community-plugin/typora-community-plugin) 开发的 Mermaid 图表放大预览插件，作者 `js`。
+- `readonly-mode/`：基于 [typora-community-plugin](https://github.com/typora-community-plugin/typora-community-plugin) 开发的只读模式插件，作者 `js`。
+- `document-nav/`：基于 [typora-community-plugin](https://github.com/typora-community-plugin/typora-community-plugin) 开发的文档顶部/底部快速跳转插件，作者 `js`。
 - `mdmdt.css`：基于 [cayxc/Mdmdt](https://github.com/cayxc/Mdmdt) 并按个人偏好调整后的 Typora 主题。
 
 ## 内容说明
@@ -33,13 +34,24 @@
 - 可使用 `Ctrl+Alt+R` 快捷键切换模式。
 - 状态会保存到本地，下次打开 Typora 时沿用上次设置。
 
+### Document Nav
+
+`document-nav` 会在 Typora 右侧下方提供一组悬浮导航按钮，用于快速跳到当前文档的顶部或底部。
+
+主要特性：
+
+- 右侧固定显示上下两个圆形导航按钮。
+- 顶部按钮点击后直接跳转到文档开头。
+- 底部按钮点击后直接跳转到文档末尾。
+- 默认与 `readonly-mode` 兼容，只读模式开启时仍可点击导航按钮。
+
 ### mdmdt.css
 
 `mdmdt.css` 是基于 Mdmdt 主题继续调整的 Typora 主题文件。原主题强调简洁、舒适的文档阅读和写作体验，并包含亮色/暗色模式相关样式；本仓库中的版本在此基础上按个人使用习惯做了局部调整。
 
 ## 安装 typora-community-plugin
 
-`mermaid-zoom` 和 `readonly-mode` 都依赖 Typora Community Plugin。安装这两个插件前，需要先安装插件系统。
+`document-nav`、`mermaid-zoom` 和 `readonly-mode` 都依赖 Typora Community Plugin。安装这些插件前，需要先安装插件系统。
 
 推荐方式：
 
@@ -72,6 +84,10 @@
 
 ```text
 ~/.typora/community-plugins/plugins/
+  document-nav/
+    manifest.json
+    main.js
+    style.css
   mermaid-zoom/
     manifest.json
     main.js
@@ -92,6 +108,7 @@
 你的笔记目录/
   .typora/
     plugins/
+      document-nav/
       mermaid-zoom/
       readonly-mode/
 ```
@@ -101,7 +118,7 @@
 1. 启动 Typora。
 2. 打开插件系统的设置界面。
 3. 进入已安装插件列表。
-4. 勾选启用 `Mermaid Zoom` 和 `Read-only Mode`。
+4. 勾选启用 `Document Nav`、`Mermaid Zoom` 和 `Read-only Mode`。
 5. 如未立即生效，重启 Typora。
 
 ## 安装主题

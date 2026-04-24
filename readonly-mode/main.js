@@ -12,6 +12,8 @@ const EDITOR_SELECTOR = [
 const PASS_THROUGH_SELECTOR = [
   '.typora-readonly-toggle',
   '.typora-readonly-toast',
+  '.typora-document-nav',
+  '.typora-document-nav-btn',
   '.mermaid-zoom-btn',
   '.mermaid-zoom-overlay',
 ].join(',')
