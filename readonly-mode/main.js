@@ -87,6 +87,7 @@ export default class ReadonlyModePlugin {
     this.renderedToggleState = undefined
     this.toast = undefined
     this.toastTimer = 0
+    this._isBlurring = false
     this.handlePointerEvent = (event) => this.blockPointerEvent(event)
     this.handleInputEvent = (event) => this.blockEditorEvent(event)
     this.handleKeydown = (event) => this.blockKeydown(event)
@@ -223,8 +224,10 @@ export default class ReadonlyModePlugin {
     if (!this.shouldBlockEditorEvent(event)) {
       return
     }
-
-    requestAnimationFrame(() => this.blurEditor())
+    if (this._isBlurring) {
+      return
+    }
+    this.blurEditor()
   }
 
   shouldBlockEditorEvent(event) {
@@ -278,11 +281,12 @@ export default class ReadonlyModePlugin {
   isToggleShortcut(event) {
     return (event.ctrlKey || event.metaKey) && event.altKey && event.key.toLowerCase() === 'r'
   }
-
   blurEditor() {
     const activeElement = document.activeElement
     if (activeElement instanceof HTMLElement && activeElement.closest(EDITOR_SELECTOR)) {
+      this._isBlurring = true
       activeElement.blur()
+      this._isBlurring = false
     }
   }
 

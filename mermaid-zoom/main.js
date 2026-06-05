@@ -19,10 +19,49 @@ export default class MermaidZoomPlugin {
     this.scanFrame = 0
     this.pendingScanRoots = new Set()
     this.delayedScanTimers = new Set()
+    this.mouseX = 0
+    this.mouseY = 0
     this.handlePointerScan = (event) => this.queueScan(this.getEventScanRoot(event))
     this.handleActivationScan = (event) => {
       const root = this.getEventScanRoot(event)
       ACTIVATION_SCAN_DELAYS.forEach((delay) => this.scheduleScan(root, delay))
+    }
+    this.handleMousemove = (event) => {
+      this.mouseX = event.clientX
+      this.mouseY = event.clientY
+    }
+    this.handleMermaidKeydown = (event) => {
+      // Escape: close lightbox (fires before any other handler, works in read-only mode)
+      if (event.key === 'Escape' && this.activeClose) {
+        event.preventDefault()
+        event.stopPropagation()
+        event.stopImmediatePropagation()
+        this.activeClose()
+        return
+      }
+
+      // 'f' key: open lightbox when mouse is over a Mermaid diagram
+      if (event.key?.toLowerCase() !== 'f' || event.ctrlKey || event.metaKey || event.altKey) {
+        return
+      }
+      if (this.activeClose) {
+        return
+      }
+      const el = document.elementFromPoint(this.mouseX, this.mouseY)
+      if (!el) {
+        return
+      }
+      const host = el.closest('.mermaid-zoom-host')
+      if (!(host instanceof HTMLElement)) {
+        return
+      }
+      event.preventDefault()
+      event.stopPropagation()
+      event.stopImmediatePropagation()
+      const svg = host.querySelector('svg')
+      if (svg) {
+        this.openLightbox(svg)
+      }
     }
   }
 
@@ -40,6 +79,8 @@ export default class MermaidZoomPlugin {
     document.addEventListener('mouseover', this.handlePointerScan, true)
     document.addEventListener('focusin', this.handleActivationScan, true)
     document.addEventListener('click', this.handleActivationScan, true)
+    document.addEventListener('mousemove', this.handleMousemove, true)
+    window.addEventListener('keydown', this.handleMermaidKeydown, true)
 
     this.observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
@@ -72,6 +113,8 @@ export default class MermaidZoomPlugin {
     document.removeEventListener('mouseover', this.handlePointerScan, true)
     document.removeEventListener('focusin', this.handleActivationScan, true)
     document.removeEventListener('click', this.handleActivationScan, true)
+    document.removeEventListener('mousemove', this.handleMousemove, true)
+    window.removeEventListener('keydown', this.handleMermaidKeydown, true)
 
     document.querySelectorAll('.mermaid-zoom-btn').forEach((button) => {
       button.remove()
@@ -198,9 +241,20 @@ export default class MermaidZoomPlugin {
     const button = document.createElement('button')
     button.type = 'button'
     button.className = 'mermaid-zoom-btn'
-    button.dataset.tooltip = '放大查看 Mermaid 图'
-    button.setAttribute('aria-label', '放大查看 Mermaid 图')
+    button.dataset.tooltip = '放大查看 Mermaid 图（快捷键 F）'
+    button.setAttribute('aria-label', '放大查看 Mermaid 图（快捷键 F）')
     button.innerHTML = '<span aria-hidden="true">⤢</span>'
+    // Block all pointer events from bubbling to Typora's internal handlers.
+    // Without this, in read-only mode the readonly plugin's pass-through
+    // lets mousedown/mouseup reach Typora, which toggles the diagram to source view.
+    const blockPointer = (event) => {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+    button.addEventListener('pointerdown', blockPointer)
+    button.addEventListener('pointerup', blockPointer)
+    button.addEventListener('mousedown', blockPointer)
+    button.addEventListener('mouseup', blockPointer)
     button.addEventListener('click', (event) => {
       event.preventDefault()
       event.stopPropagation()
@@ -283,7 +337,7 @@ export default class MermaidZoomPlugin {
 
     const resetView = () => {
       const fitScale = Math.min(
-        1,
+        2,
         Math.max(0.1, (viewport.clientWidth - 64) / (baseWidth + 48)),
         Math.max(0.1, (viewport.clientHeight - 64) / (baseHeight + 48)),
       )
@@ -295,18 +349,11 @@ export default class MermaidZoomPlugin {
     }
 
     const close = () => {
-      window.removeEventListener('keydown', onKeydown)
       window.removeEventListener('pointermove', onPointerMove)
       window.removeEventListener('pointerup', onPointerUp)
       overlay.remove()
       if (this.activeClose === close) {
         this.activeClose = undefined
-      }
-    }
-
-    const onKeydown = (event) => {
-      if (event.key === 'Escape') {
-        close()
       }
     }
 
@@ -344,6 +391,7 @@ export default class MermaidZoomPlugin {
     }, { passive: false })
 
     viewport.addEventListener('pointerdown', (event) => {
+      event.preventDefault()
       isDragging = true
       lastX = event.clientX
       lastY = event.clientY
@@ -359,7 +407,6 @@ export default class MermaidZoomPlugin {
 
     closeButton.addEventListener('click', close)
     resetButton.addEventListener('click', resetView)
-    window.addEventListener('keydown', onKeydown)
     window.addEventListener('pointermove', onPointerMove)
     window.addEventListener('pointerup', onPointerUp)
 
