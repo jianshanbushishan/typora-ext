@@ -927,6 +927,27 @@ tt {
     padding: 1px 0.25rem;
 }
 
+/* Inline code in headings — match heading font height */
+#write h1 code,
+#write h1 tt {
+    font-size: 26px;
+}
+
+#write h2 code,
+#write h2 tt {
+    font-size: 22px;
+}
+
+#write h3 code,
+#write h3 tt {
+    font-size: 18px;
+}
+
+#write h4 code,
+#write h4 tt {
+    font-size: 16px;
+}
+
 
 blockquote {
     background-color: transparent;
