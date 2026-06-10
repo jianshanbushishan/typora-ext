@@ -2,7 +2,7 @@
   position: fixed;
   right: 24px;
   bottom: 28px;
-  z-index: 2147483600;
+  z-index: 9;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -63,7 +63,7 @@
   position: fixed;
   left: 50%;
   bottom: 80px;
-  z-index: 2147483600;
+  z-index: 9;
   padding: 9px 14px;
   border: 1px solid var(--window-border, rgba(127, 127, 127, 0.35));
   border-radius: 999px;
