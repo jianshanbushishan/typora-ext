@@ -6,7 +6,7 @@
 - `readonly-mode/`:基于 [typora-community-plugin](https://github.com/typora-community-plugin/typora-community-plugin) 开发的只读模式插件,作者 `js`。
 - `document-nav/`:基于 [typora-community-plugin](https://github.com/typora-community-plugin/typora-community-plugin) 开发的文档顶部/底部快速跳转插件,作者 `js`。
 - `mdmdt.css`:基于 [cayxc/Mdmdt](https://github.com/cayxc/Mdmdt) 并按个人偏好调整后的 Typora 主题。
-- `claude-theme.css`:按 Claude 视觉风格定制的 Typora 主题,自带亮/暗双模式。
+- `claude.css`:按 Claude 视觉风格定制的 Typora 主题,自带亮/暗双模式。
 
 ## 内容说明
 
@@ -60,9 +60,9 @@
 - 新增并细化代码语法高亮变量:`--code-syntax-text/keyword/type/name/comment/operator`,覆盖关键字、类型、标识符、注释、运算符等场景。
 - 保留原主题对阅读节奏、标题层级、Mermaid 主题参数等的设置,并继续按个人使用习惯做了细节调整。
 
-### claude-theme.css
+### claude.css
 
-`claude-theme.css` 是按 Claude 视觉风格独立整理的 Typora 主题,内建亮色与暗色两套配色,通过 `prefers-color-scheme` 自动切换。
+`claude.css` 是按 Claude 视觉风格独立整理的 Typora 主题,内建亮色与暗色两套配色,通过 `prefers-color-scheme` 自动切换。
 
 主要特性:
 
@@ -148,18 +148,15 @@
 
 ## 安装主题
 
-`mdmdt.css` 和 `claude-theme.css` 都按 Typora 普通主题方式安装。
-
-1. 打开 Typora。
-2. 进入 `偏好设置` -> `外观`。
-3. 点击 `打开主题文件夹`。
-4. 将仓库中的 `mdmdt.css` 和/或 `claude-theme.css` 复制到打开的主题目录。
+`mdmdt.css` 和 `claude.css` 都按 Typora 普通主题方式安装。
+ ...
+4. 将仓库中的 `mdmdt.css` 和/或 `claude.css` 复制到打开的主题目录。
 5. 重启 Typora。
 6. 在菜单栏 `主题` 中选择 `Mdmdt` 或 `Claude Theme`。
 
-> `claude-theme.css` 不依赖系统深色模式开关,亮/暗模式由系统 `prefers-color-scheme` 决定;如需固定暗色,可以在系统层面切换或基于该文件再拆分亮/暗两份主题。
+> `claude.css` 不依赖系统深色模式开关,亮/暗模式由系统 `prefers-color-scheme` 决定;如需固定暗色,可以在系统层面切换或基于该文件再拆分亮/暗两份主题。
 
-如果需要继续调整字体,可直接编辑对应主题 CSS 中的 `font-family` 和 `--monospace`(`claude-theme.css` 中为 `--font-mono`)相关配置。修改后重启 Typora 或重新切换主题即可查看效果。
+如果需要继续调整字体,可直接编辑对应主题 CSS 中的 `font-family` 和 `--monospace`(`claude.css` 中为 `--font-mono`)相关配置。修改后重启 Typora 或重新切换主题即可查看效果。
 
 ## 注意事项
 

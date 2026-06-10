@@ -5,7 +5,8 @@
 A personal collection of standalone plugins and CSS themes for the **Typora** Markdown editor. Plugins target the [typora-community-plugin](https://github.com/typora-community-plugin/typora-community-plugin) ecosystem and are loaded directly by Typora's plugin host — there is no build step, no package manager, and no test infrastructure. The repository ships:
 
 - **3 plugins** (each a self-contained directory): `document-nav/`, `readonly-mode/`, `mermaid-zoom/`
-- **2 standalone Typora themes**: `claude-theme.css`, `mdmdt.css`
+- **2 standalone Typora themes**: `claude.css`, `mdmdt.css`
+
 
 ## Architecture & Data Flow
 
@@ -39,7 +40,7 @@ State is per-plugin (instance fields) or persisted in `localStorage` (`readonly-
 | `document-nav/` | Floating top/bottom scroll buttons. Files: `manifest.json` (352B), `main.js` (6.1KB), `style.css` (2.5KB). v0.1.1. |
 | `readonly-mode/` | Toggle that blocks pointer/input/keyboard events on the editor. Files: `manifest.json` (370B), `main.js` (8.6KB), `style.css` (2.3KB). v0.1.2. Includes localStorage persistence and Ctrl+Alt+R shortcut. |
 | `mermaid-zoom/` | Hover-zoom button on Mermaid SVGs + lightbox with pan/zoom. Files: `manifest.json` (343B), `main.js` (12.6KB), `style.css` (5.5KB). v0.2.0. F-key shortcut. |
-| `claude-theme.css` | Standalone Typora theme (89.7KB). Claude visual style, light/dark via `prefers-color-scheme`. **No license header.** |
+| `claude.css` | Standalone Typora theme (89.7KB). Claude visual style, light/dark via `prefers-color-scheme`. **No license header.** |
 | `mdmdt.css` | Standalone Typora theme (79.2KB). Fork of `cayxc/Mdmdt`. **Apache-2.0** (header present). |
 | `README.md` | Sole documentation. Written in **Chinese**. |
 
@@ -55,7 +56,7 @@ cp -r document-nav/ ~/.typora/community-plugins/plugins/
 #   Typora → Settings → Community Plugins → enable "document-nav"
 
 # Install a theme
-cp claude-theme.css ~/.typora/themes/
+cp claude.css ~/.typora/themes/
 #   Typora → Themes → select "claude-theme"
 ```
 
@@ -100,7 +101,7 @@ export default class FooPlugin {
 - **Lint/format**: none configured. Match the existing hand-written style; do not run a formatter that would churn whitespace.
 - **Editorconfig / .gitignore / LICENSE**: **none present**. Repo hygiene is loose. If you add files, follow the existing per-plugin directory shape rather than introducing tooling.
 - **No `.editorconfig`** — indentation is 4 spaces in JS, 4 spaces in CSS (verify by reading the file before editing).
-- **License state**: `mdmdt.css` declares Apache-2.0 in-file. `claude-theme.css` and the plugin JS files have no license headers. Do not add a `LICENSE` file or relicense anything unless the user explicitly asks.
+- **License state**: `mdmdt.css` declares Apache-2.0 in-file. `claude.css` and the plugin JS files have no license headers. Do not add a `LICENSE` file or relicense anything unless the user explicitly asks.
 
 ## Testing & QA
 
