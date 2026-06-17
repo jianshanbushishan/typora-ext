@@ -1898,9 +1898,9 @@ a:hover {
     content: '';
     position: absolute;
     z-index: 38;
-    left: -16px;
+    left: -18px;
     top: -27.5px;
-    width: 16px;
+    width: 18px;
     height: calc(50% + 28px);
     background: transparent;
     border-left: 1px solid var(--LOGO-color);
@@ -1952,7 +1952,7 @@ a:hover {
 .outline-item-open > .outline-children::before {
     content: '';
     position: absolute;
-    left: -35px;
+    left: -37px;
     top: -26px;
     width: 1px;
     height: calc(100% + 12px);
@@ -1961,7 +1961,7 @@ a:hover {
 }
 
 .no-collapse-outline .outline-item-wrapper > .outline-children::before {
-    left: -38px;
+    left: -40px;
 }
 
 
@@ -1990,7 +1990,7 @@ a:hover {
 li > .outline-item-active:before,
 .outline-item:hover::before,
 .outline-item-active > .outline-item::before {
-    width: 13px !important;
+    width: 15px !important;
 }
 
 
@@ -2005,7 +2005,7 @@ li > .outline-item:hover,
 li > .outline-item-active::before,
 li > .outline-item:hover::before,
 .outline-item-active > .outline-item::before {
-    left: -13px !important;
+    left: -15px !important;
 }
 
 
