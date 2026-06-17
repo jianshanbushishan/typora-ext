@@ -8,7 +8,6 @@
  * ------------------------------------------------------------------------
 */
 :root {
-  /*--bg-color: rgb(250, 250, 250);*/
   --bg-color: #ffffff;
   --bg-color2: #f7fbfc;
   --code-block-bg: #f7fbfc;
@@ -30,6 +29,8 @@
   --code-syntax-operator: #20242c;
   --title-color: #111111;
   --border-color: rgba(17, 17, 17, 0.18);
+  --scrollbar-color: rgba(17, 17, 17, 0.55);
+  --scrollbar-hover-color: rgba(17, 17, 17, 0.75);
 
   --pastel-blue: #a8d8ea;
   --pastel-mint: #b5e5cf;
@@ -170,7 +171,6 @@ body.os-windows {
   tab-size: 4;
   -webkit-tab-size: 4;
   -moz-tab-size: 4;
-  -o-tab-size: 4;
 }
 
 /*
@@ -178,24 +178,28 @@ body.os-windows {
  * scroll style
  * ------------------------
 */
-::-webkit-scrollbar,
 ::-webkit-scrollbar {
-  width: 8px !important;
-  height: 8px !important;
+    width: 8px;
+    height: 8px;
 }
-::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-thumb {
-  border-radius: 4px !important;
-  background: var(--border-color) !important;
-}
-::-webkit-scrollbar-track,
+
 ::-webkit-scrollbar-track {
-  background: var(--bg-color2) !important;
+    background: transparent;
 }
-html,
-html * {
-  scrollbar-color: var(--border-color) var(--bg-color2) !important;
-  scrollbar-width: thin !important;
+
+::-webkit-scrollbar-thumb {
+    background-clip: border-box;
+    background: var(--scrollbar-color);
+    border-radius: 8px;
+    border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover-color);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
 }
 
 /*
@@ -440,9 +444,6 @@ a.reversefootnote::before,
   height: 0 !important;
   background-image: none !important;
 }
-a:hover {
-  color: var(--title-color);
-}
 .footnotes,
 .footnotes a {
   font-size: 14px;
@@ -537,8 +538,6 @@ span.md-image {
 p.md-focus span.md-image {
   background: var(--color-1-0-b);
   box-shadow: 0 0 3px var(--border-color);
-}
-p.md-focus span.md-image {
   margin-top: 0;
 }
 span.md-image,
@@ -615,10 +614,7 @@ code {
   border: 1px solid var(--inline-code-border);
   padding: 2px 8px;
   color: var(--inline-code-text);
-  //font-family: var(--monospace);
   font-size: 14px;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -667,7 +663,7 @@ pre .CodeMirror-wrap .CodeMirror-scroll {
   overflow-x: auto;
 }
 pre .CodeMirror-sizer {
-  padding-left: 4px;
+  padding-left: 16px;
 }
 pre .CodeMirror-gutters {
   background: var(--code-block-bg);
@@ -679,7 +675,35 @@ pre .CodeMirror-gutters {
  * blockquote
  * ------------------------
 */
-blockquote,
+blockquote {
+  position: relative;
+  margin-top: 16px !important;
+  margin-bottom: 0;
+  padding: 4px 16px 4px 36px;
+  background: transparent;
+  box-sizing: border-box;
+  border: none;
+  color: var(--text-color);
+}
+blockquote::before {
+  content: "\201C";
+  position: absolute;
+  left: 4px;
+  top: -6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+blockquote > *:first-child,
+.md-alert > *:first-child {
+  margin-top: 0 !important;
+}
+blockquote > *:last-child,
+.md-alert > *:last-child {
+  margin-bottom: 0 !important;
+}
 .md-alert {
   margin-top: 16px !important;
   margin-bottom: 0;
@@ -692,14 +716,6 @@ blockquote,
   border-bottom: 0.1px solid transparent;
   border-top: 0.1px solid transparent;
   color: var(--text-color);
-}
-blockquote > *:first-child,
-.md-alert > *:first-child {
-  margin-top: 0 !important;
-}
-blockquote > *:last-child,
-.md-alert > *:last-child {
-  margin-bottom: 0 !important;
 }
 .md-alert.md-alert-note {
   border-left-color: var(--pastel-blue);
@@ -1124,8 +1140,6 @@ body > header {
   box-sizing: border-box;
   padding: 32px 112px;
   overflow: visible;
-  /*  scroll-behavior: smooth;
-    scroll-padding: 16px;*/
 }
 content {
   justify-content: flex-start !important;
@@ -1790,7 +1804,6 @@ li > .outline-item:hover::before,
   min-width: 2.5em;
   padding-right: 12px;
 }
-}
 .cm-s-inner .CodeMirror-cursor {
   border-left: 1px solid var(--border-color);
 }
@@ -1869,7 +1882,7 @@ li > .outline-item:hover::before,
   text-decoration: underline;
   color: var(--code-syntax-text) !important;
 }
-/* apply to code fences with plan text*/
+/* apply to code fences with plain text*/
 .md-fences {
   background-color: var(--code-block-bg);
   color: var(--text-grey);
@@ -2166,7 +2179,6 @@ li > .outline-item:hover::before,
   color: var(--color-1);
 }
 .ty-show-search #info-panel-tab-search .info-panel-tab-border,
-.ty-show-search #info-panel-tab-search .info-panel-tab-border,
 .active-tab-files #info-panel-tab-file .info-panel-tab-border,
 .active-tab-outline #info-panel-tab-outline .info-panel-tab-border {
   height: 3px;
@@ -2425,8 +2437,7 @@ footer.ty-footer,
 .export-detail .input-group-content > .row {
   margin-right: 16px;
 }
-.export-detail,
-.export-item.active {
+.export-detail {
   color: var(--text-color) !important;
 }
 .export-item.active {
@@ -2634,7 +2645,6 @@ footer.ty-footer,
 /* 打字机模式提示 */
 #md-notification .ty-enter-mode-warning-body + div {
   display: flex;
-  display: -webkit-flex;
 }
 #md-notification label {
   align-self: center;
@@ -2677,7 +2687,6 @@ body.typora-export {
 }
 .typora-export .typora-export-content {
   display: flex;
-  display: -webkit-flex;
   width: 100vw;
   max-width: 1920px;
   margin: 0 auto;
@@ -2966,6 +2975,8 @@ body.typora-export {
     --code-syntax-operator: #d7dde7;
     --title-color: #f1ede9;
     --border-color: rgba(232, 227, 223, 0.18);
+    --scrollbar-color: rgba(232, 227, 223, 0.55);
+    --scrollbar-hover-color: rgba(232, 227, 223, 0.75);
 
     --pastel-blue: #4f7885;
     --pastel-mint: #5f8374;
@@ -3055,15 +3066,13 @@ body.typora-export {
   }
   /* scroll style */
   ::-webkit-scrollbar-thumb {
-    background: var(--text-grey) !important;
+    background: var(--scrollbar-color);
   }
   ::-webkit-scrollbar-track {
-    background: var(--bg-color2) !important;
+    background: transparent;
   }
-  html,
-  html * {
-    scrollbar-width: thin !important;
-    scrollbar-color: var(--text-grey) var(--bg-color2) !important;
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover-color);
   }
   strong {
     color: var(--strong-color);

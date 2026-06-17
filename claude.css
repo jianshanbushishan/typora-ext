@@ -1,10 +1,6 @@
 /* =========================================
    Claude Theme - Typora Light/Dark Theme
    ========================================= */
-
-/* =========================================
-   Theme Section
-   ========================================= */
 * {
     box-sizing: border-box;
     outline-color: #2c84db;
@@ -35,22 +31,19 @@ body {
     font-family: var(--font-sans);
 }
 
-/* =========================================
-   Theme Section
-   ========================================= */
 
 :root {
-    /* Implementation detail */
+    
     --bg-color: #faf9f5;
     --hover-color: #f0eee6;
     --font-color: #141413;
     --border-color: #1f1e1d;
-    --border-color-15: #1f1e1d26;       /* Implementation detail */
-    --border-color-30: #1f1e1d4d;       /* Implementation detail */
+    --border-color-15: #1f1e1d26;       
+    --border-color-30: #1f1e1d4d;       
     --sidebar-font-color: #3d3d3a;
     --sidebar-width: 475px;             /* Default sidebar width */
 
-    /* Implementation detail */
+    
     --file-search-list-font-color: #3d3d3a;
     --file-search-list-bg-color: #f8f8f3;
     --file-search-list-focus-bg-color: #f5f4ed;
@@ -75,24 +68,21 @@ body {
     --code-bg-color: #3d3d3a0d;
     --code-font-color: #8a2424;
     --code-border: #1f1e1d26;
-
+    --quote-border: #1f1e1d1a;
     --quote-font-color: #3d3d3a;
-    --quote-boder: #1f1e1d1a;
 
     --LOGO-color: #D97757;
 
-    /* Implementation detail */
+    /* Border HSL components for box-shadow */
     --border-100: 30 3.3% 11.8%;
     --border-200: 30 3.3% 11.8%;
     --border-300: 30 3.3% 11.8%;
-    --always-black: 0 0% 0%;
 
-    /* Implementation detail */
     --box-shadow-search: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgb(0 0 0 / .25);
     --box-shadow-userinput: 0 18px 48px -28px rgb(31 30 29 / 32%), 0 8px 18px -14px rgb(31 30 29 / 18%), 0 0 0 0.5px hsla(var(--border-300) / 0.18);
     --box-shadow-userinput-hover: 0 22px 58px -30px rgb(31 30 29 / 38%), 0 10px 22px -15px rgb(31 30 29 / 22%), 0 0 0 0.5px hsla(var(--border-200) / 0.28);
     --box-shadow-userinput-focus: 0 24px 64px -28px rgb(31 30 29 / 44%), 0 12px 26px -14px rgb(31 30 29 / 24%), 0 0 0 0.5px hsla(var(--border-200) / 0.32);
-    /* Implementation detail */
+
     --font-serif: "霞鹜新致宋", Georgia, "Times New Roman", serif;
     --font-sans: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", Arial, "Helvetica Neue", Helvetica, sans-serif;
     --font-mono: "Fira Code", "Source Code Pro", Consolas, Inconsolata, "Cascadia Code", Monaco, "Ubuntu Mono", "霞鹜文楷", monospace;
@@ -101,11 +91,6 @@ body {
     --font-strong: 700;
     --pre-inputfont-weight: 430;
     --sidebar-font-weight: 430;
-
-    /* Implementation detail */
-    --raduis-8: 8px;
-    --raduis-12: 12px;
-    --raduis-20: 20px;
 }
 
 /* Plugin Overrides */
@@ -169,7 +154,6 @@ body {
     opacity: 1;
 }
 
-/* ===== Global Styles ===== */
 
 body {
     line-height: 1.75;
@@ -178,7 +162,7 @@ body {
     font-weight: var(--font-weight);
     letter-spacing: 0.4px;
 
-    /* Implementation detail */
+    
     --item-hover-bg-color: var(--hover-color);
     --side-bar-bg-color: var(--bg-color);
 }
@@ -212,7 +196,7 @@ body.os-windows {
     border-radius: 10px;
 }
 
-/* Implementation detail */
+
 #context-menu,
 #file-menu.show,
 #outline-menu.show {
@@ -235,7 +219,7 @@ body.os-windows {
     }
 }
 
-/* Implementation detail */
+
 .ty-show-spell-check #spell-check-panel,
 .ty-show-word-count #footer-word-count-info.dropdown-menu {
     transform-origin: bottom right;
@@ -287,7 +271,7 @@ body.os-windows {
     background: transparent;
 }
 
-/* Implementation detail */
+
 ::-webkit-scrollbar-thumb {
     background-clip: border-box;
     background: var(--scrollbar-color);
@@ -299,7 +283,7 @@ body.os-windows {
     background-color: var(--scrollbar-hover-color);
 }
 
-/* Implementation detail */
+
 ::-webkit-scrollbar-corner {
     background: transparent;
 }
@@ -311,59 +295,36 @@ body.os-windows {
 
 /* Headings */
 
-#write h1 {
-    font-family: "霞鹜新晰黑", sans-serif;
-    font-size: 32px;
+#write h1,
+#write h2,
+#write h3,
+#write h4,
+#write h5,
+#write h6 {
     line-height: 1.5;
-    font-weight: var(--font-strong);
     margin: 32px 0 18px 0;
     padding: 0 2rem 0 0.5rem;
 }
 
-#write h2 {
-    font-family: "霞鹜新晰黑", sans-serif;
-    font-size: 28px;
-    line-height: 1.5;
-    font-weight: var(--font-strong);
-    margin: 32px 0 18px 0;
-    padding: 0 2rem 0 0.5rem;
-}
-
+#write h1,
+#write h2,
 #write h3 {
     font-family: "霞鹜新晰黑", sans-serif;
-    font-size: 24px;
-    line-height: 1.5;
     font-weight: var(--font-strong);
-    margin: 32px 0 18px 0;
-    padding: 0 2rem 0 0.5rem;
 }
 
-#write h4 {
-    font-family: "霞鹜新致宋", serif;
-    font-size: 20px;
-    line-height: 1.5;
-    font-weight: var(--font-strong);
-    margin: 32px 0 18px 0;
-    padding: 0 2rem 0 0.5rem;
-}
-
-#write h5 {
-    font-family: "霞鹜新致宋", serif;
-    font-size: 18px;
-    line-height: 1.5;
-    font-weight: 600;
-    margin: 32px 0 18px 0;
-    padding: 0 2rem 0 0.5rem;
-}
-
+#write h4,
+#write h5,
 #write h6 {
     font-family: "霞鹜新致宋", serif;
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 600;
-    margin: 32px 0 18px 0;
-    padding: 0 2rem 0 0.5rem;
 }
+
+#write h1 { font-size: 32px; }
+#write h2 { font-size: 28px; }
+#write h3 { font-size: 24px; }
+#write h4 { font-size: 20px; font-weight: var(--font-strong); }
+#write h5 { font-size: 18px; font-weight: 600; }
+#write h6 { font-size: 16px; font-weight: 600; }
 
 
 #write p {
@@ -377,7 +338,7 @@ body.os-windows {
 
 /* Selection */
 ::selection {
-    background-color: #c4a894 !important;
+    background-color: #d9e4fc !important;
     color: var(--font-color) !important;
 }
 
@@ -404,25 +365,25 @@ body.os-windows {
 /* Highlight */
 span[md-inline="highlight"] mark,
 .md-pair-s mark {
-    /* Implementation detail */
+    
     background-color: transparent !important; 
     
-    /* Implementation detail */
+    
     text-decoration: underline wavy #D97757; 
     
-    /* Implementation detail */
+    
     text-underline-offset: 3px; 
     
-    /* Implementation detail */
+    
     /* color: #D97757; */
 }
 
 /* Underline */
 span[md-inline="underline"] u {
-    /* Implementation detail */
+    
     text-decoration: underline solid #D97757 !important;  
 
-    /* Implementation detail */
+    
     text-underline-offset: 3px; 
 }
 
@@ -526,7 +487,7 @@ markdown > ol ol {
     border-top: none;
     border-bottom-width: 0.5px;
     padding: 0.5rem 1rem 0.5rem 1px !important;
-    height: 1px; /* Implementation detail */
+    height: 1px; 
 }
 
 .write tr:last-child td {
@@ -563,7 +524,7 @@ markdown > ol ol {
     font-weight: var(--font-weight);
 }
 
-/* Implementation detail */
+
 .ty-table-edit {
     max-width: 696px;
     width: 100%;
@@ -703,12 +664,12 @@ hr {
     background-color: transparent;
 }
 
-/* Implementation detail */
+
 .md-fences .CodeMirror-gutters {
     border-right: none !important;
 }
 
-/* Implementation detail */
+
 .md-fences {
     margin: 0 !important;
     padding: 0.875rem;
@@ -783,29 +744,10 @@ hr {
 }
 
 /* Code Blocks */
-.md-fences .code-tooltip.md-tooltip-remove {
-    font-size: 0.75rem !important;
-    font-family: var(--font-sans);
-    border: none !important;
-    box-shadow: none !important;
-    margin: 0 !important;
-    padding: 0 15px 14px 0 !important;
-    line-height: 17px;
-    height: auto;
-    top: auto !important;
-    bottom: 0px !important;
-    left: auto !important;
-    right: 0px !important;
-}
-
-/* Implementation detail */
-
-/* Code Blocks */
 .md-fences[lang]:not([lang=""])::before {
     display: none !important;
 }
 
-/* Code Blocks */
 .md-fences .code-tooltip {
     position: absolute !important;
     top: auto !important;
@@ -815,38 +757,27 @@ hr {
     padding: 0 15px 14px 0 !important;
     margin: 0 !important;
     height: auto !important;
+    line-height: 17px;
     border: none !important;
     box-shadow: none !important;
     background: transparent !important;
     transition: none !important;
     animation: none !important;
     z-index: 10;
+    font-size: 0.75rem !important;
+    font-family: var(--font-sans);
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
 }
 
-/* Code Blocks */
-.md-fences.md-focus .code-tooltip {
+.md-fences.md-focus .code-tooltip,
+.md-fences.md-focus .code-tooltip:focus-within {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
 }
 
-/* Code Blocks */
-.md-fences.md-focus .code-tooltip:focus-within {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* Code Blocks */
-.md-fences:not(.md-focus) .code-tooltip {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-}
-
-/* Code Blocks */
 .md-fences .code-tooltip .ty-input {
     color: var(--pre-inputfont-color) !important;
     font-weight: var(--pre-inputfont-weight) !important;
@@ -860,7 +791,7 @@ hr {
     text-align: right !important;
 }
 
-/* Implementation detail */
+
 
 .md-fences .cm-comment,
 .md-fences .cm-meta {
@@ -915,8 +846,7 @@ hr {
 }
 
 
-code,
-tt {
+code {
     font-family: var(--font-mono);
     background-color: var(--code-bg-color);
     color: var(--code-font-color);
@@ -928,23 +858,19 @@ tt {
 }
 
 /* Inline code in headings — match heading font height */
-#write h1 code,
-#write h1 tt {
+#write h1 code {
     font-size: 26px;
 }
 
-#write h2 code,
-#write h2 tt {
+#write h2 code {
     font-size: 22px;
 }
 
-#write h3 code,
-#write h3 tt {
+#write h3 code {
     font-size: 18px;
 }
 
-#write h4 code,
-#write h4 tt {
+#write h4 code {
     font-size: 16px;
 }
 
@@ -955,7 +881,7 @@ blockquote {
     padding: 0 2rem 0 0.5rem;
     border-left-width: 4px;
     color: var(--quote-font-color);
-    border-color: var(--quote-boder);
+    border-color: var(--quote-border);
 }
 
 /* Blockquote */
@@ -1204,7 +1130,7 @@ mjx-container::-webkit-scrollbar {
     height: 0 !important;
 }
 
-/* Implementation detail */
+
 .md-math-container,
 .md-math-block .MathJax,
 mjx-container {
@@ -1234,9 +1160,6 @@ a:hover {
     text-decoration-color: #D97757;
 }
 
-/* =========================================
-   Theme Section
-   ========================================= */
 
 /* Sidebar */
 #typora-sidebar-resizer:not(.dragging) .typora-sidebar-resizer-bar:hover {
@@ -1431,34 +1354,24 @@ a:hover {
 
 #typora-sidebar .file-list-item {
     transition: background-color 0.15s ease-out;
+    border-bottom-color: var(--border-color-15);
 }
 
-#typora-sidebar .file-list-item:hover {
-    background-color: var(--hover-color);
-}
-
+#typora-sidebar .file-list-item:hover,
 #typora-sidebar .file-list-item.active {
     background-color: var(--hover-color);
 }
 
-/* Sidebar */
+.file-list-item.active {
+    color: #756420!important;
+}
+
 .file-list-item-summary {
     color: var(--sidebar-font-color) !important;
 }
 
-/* Sidebar */
-#typora-sidebar .file-list-item {
-    border-bottom-color: var(--border-color-15);
-}
-
-/* Sidebar */
 .file-list-item-file-ext-part {
     display: none;
-}
-
-/* Sidebar */
-.file-list-item.active {
-    color: #756420!important;
 }
 
 #typora-sidebar #sidebar-loading-template {
@@ -1479,7 +1392,7 @@ a:hover {
     display: none;
 }
 
-/* Implementation detail */
+
 
 @keyframes treeItemIn {
     0% {
@@ -1543,7 +1456,7 @@ a:hover {
     animation-delay: 0s !important;
 }
 
-/* Implementation detail */
+
 .file-tree-node.file-node-collapsed
 > .file-node-children
 :is(.file-node-content, .file-node-open-state, .file-node-icon, .file-node-title, .file-tree-rename-div),
@@ -1555,7 +1468,7 @@ a:hover {
     opacity: 1 !important;
 }
 
-/* Implementation detail */
+
 
 #file-library {
     --control-text-color: var(--sidebar-font-color);
@@ -1596,7 +1509,6 @@ a:hover {
 }
 
 /* File Tree */
-#file-library-tree > div:first-child > div:nth-child(2) > i:first-child
 
 #file-library-tree > div:first-child > div:nth-child(1) {
     height: 44px;
@@ -1611,7 +1523,6 @@ a:hover {
 
 
 /* File Tree */
-.fa-folder:before
 
 #file-library-tree .file-library-node[data-is-directory="true"] > .file-node-content .file-node-icon .fa-folder::before {
     display: inline-block;
@@ -1619,9 +1530,8 @@ a:hover {
 }
 
 /* File Tree */
-#file-library-tree .file-library-node[data-is-directory="true"] > .file-node-content .file-node-open-state i
 
-/* Implementation detail */
+
 
 /* File Tree */
 #file-library-tree .file-library-file-node > .file-node-content .file-node-icon svg,
@@ -1818,9 +1728,6 @@ a:hover {
     opacity: 0.62;
 }
 
-/* =========================================
-   Theme Section
-   ========================================= */
 
 /* Outline */
 #close-outline-filter-btn {
@@ -1874,7 +1781,7 @@ a:hover {
     margin-top: -7px;
 }
 
-/* Implementation detail */
+
 
 .sidebar-tabs {
     padding: 0 2px;
@@ -1890,32 +1797,32 @@ a:hover {
     padding-top: 15px;
 }
 
-/* Implementation detail */
+
 
 .outline-content li {
     position: relative;
     z-index: 30;
 }
 
-/* Implementation detail */
+
 .outline-content > li:first-of-type::before {
     top: 0;
 }
 
-/* Implementation detail */
+
 .outline-content li ul {
     position: relative;
     z-index: 48;
-    margin-left: 18px;
+    margin-left: 26px;
     margin-top: 0 !important;
 }
 
-/* Implementation detail */
+
 .no-collapse-outline .outline-content li ul {
-    margin-left: 21px;
+    margin-left: 29px;
 }
 
-/* Implementation detail */
+
 
 .outline-content li .outline-item {
     position: relative;
@@ -1928,7 +1835,7 @@ a:hover {
     padding: 0 0 0 4px;
 }
 
-/* Implementation detail */
+
 .outline-item > .outline-expander {
     display: block;
     float: left;
@@ -1946,7 +1853,7 @@ a:hover {
     font-size: 10px;
 }
 
-/* Implementation detail */
+
 .outline-content li .outline-label {
     display: inline-block;
     border-radius: 4px;
@@ -1960,40 +1867,40 @@ a:hover {
     text-decoration: none;
 }
 
-/* Implementation detail */
+
 .outline-item-single .outline-label,
 .outline-item-single.outline-item-open .outline-label,
 .no-collapse-outline .outline-content li .outline-label {
     padding-left: 0 !important;
 }
 
-/* Implementation detail */
+
 .outline-item > .outline-expander:hover + .outline-label,
 .outline-item-open > .outline-item > .outline-label {
     padding-left: 11px;
 }
 
-/* Implementation detail */
+
 .no-collapse-outline .outline-item-open > .outline-item > .outline-label {
     padding-left: 0 !important;
 }
 
-/* Implementation detail */
+
 .outline-item-active > .outline-expander:hover + .outline-label,
 .outline-item-open > .outline-item-active > .outline-label {
     padding-left: 12px;
 }
 
-/* Implementation detail */
 
-/* Implementation detail */
+
+
 .outline-content li .outline-item::before {
     content: '';
     position: absolute;
     z-index: 38;
-    left: -10px;
+    left: -16px;
     top: -27.5px;
-    width: 10px;
+    width: 16px;
     height: calc(50% + 28px);
     background: transparent;
     border-left: 1px solid var(--LOGO-color);
@@ -2004,7 +1911,7 @@ a:hover {
     top: -28.5px;
 }
 
-/* Implementation detail */
+
 .outline-content > li:first-of-type > .outline-item::before {
     top: calc(50% - 1px);
     height: calc(50% + 15px);
@@ -2015,7 +1922,7 @@ a:hover {
     border-bottom-left-radius: 0;
 }
 
-/* Implementation detail */
+
 .outline-children > li:first-child > .outline-item::before,
 .outline-content > li:nth-child(2) > .outline-item::before {
     top: -11px;
@@ -2034,18 +1941,18 @@ a:hover {
     height: calc(50% + 8px);
 }
 
-/* Implementation detail */
+
 .outline-content > li:last-child > .outline-item::before,
 .outline-children > li:last-child > .outline-item::before {
     border-bottom-left-radius: 3px;
 }
 
-/* Implementation detail */
+
 .no-collapse-outline .outline-item-wrapper > .outline-children::before,
 .outline-item-open > .outline-children::before {
     content: '';
     position: absolute;
-    left: -21px;
+    left: -35px;
     top: -26px;
     width: 1px;
     height: calc(100% + 12px);
@@ -2054,16 +1961,16 @@ a:hover {
 }
 
 .no-collapse-outline .outline-item-wrapper > .outline-children::before {
-    left: -24px;
+    left: -38px;
 }
 
-/* Implementation detail */
+
 .no-collapse-outline .outline-content > li.outline-item-wrapper:first-child > .outline-children::before,
 .outline-content > li.outline-item-open:first-child > .outline-children::before {
     top: -15px;
 }
 
-/* Implementation detail */
+
 .outline-content > li:only-of-type > .outline-item::before,
 .no-collapse-outline .outline-item-wrapper:last-of-type > .outline-children::before,
 .no-collapse-outline .outline-children > li.outline-item-wrapper:last-child > .outline-children::before,
@@ -2072,21 +1979,21 @@ a:hover {
     display: none;
 }
 
-/* Implementation detail */
+
 .outline-content > li:only-of-type {
     margin-left: -8px;
 }
 
-/* Implementation detail */
 
-/* Implementation detail */
+
+
 li > .outline-item-active:before,
 .outline-item:hover::before,
 .outline-item-active > .outline-item::before {
-    width: 7px !important;
+    width: 13px !important;
 }
 
-/* Implementation detail */
+
 li > .outline-item-active,
 li > .outline-item:hover,
 .outline-item-active > .outline-item {
@@ -2094,14 +2001,14 @@ li > .outline-item:hover,
     padding-left: 7px !important;
 }
 
-/* Implementation detail */
+
 li > .outline-item-active::before,
 li > .outline-item:hover::before,
 .outline-item-active > .outline-item::before {
-    left: -7px !important;
+    left: -13px !important;
 }
 
-/* Implementation detail */
+
 .outline-item:hover,
 .outline-item:hover > .outline-label,
 .outline-item-active,
@@ -2109,62 +2016,59 @@ li > .outline-item:hover::before,
     background: var(--hover-color) !important;
 }
 
-/* Implementation detail */
 
-/* Implementation detail */
+
+
 .ty-on-outline-filter .outline-content .outline-item::before,
 .ty-on-outline-filter .outline-content .outline-item::after {
     display: none;
 }
 
-/* Implementation detail */
+
 .ty-on-outline-filter .outline-content > li > ul,
 .ty-on-outline-filter .outline-content .outline-item {
     margin-left: 0;
 }
 
-/* Implementation detail */
+
 .outline-content:has(.ty-outline-hit) {
     padding-left: 14px;
 }
 
-/* Implementation detail */
+
 .outline-content li:has(.ty-outline-hit) *::before,
 .outline-content li:has(.ty-outline-hit) *::after {
     content: '';
     display: none;
 }
 
-/* Implementation detail */
+
 .outline-content li:has(.ty-outline-hit) .outline-item {
     margin-left: 1px !important;
     width: calc(100% - 1px);
     padding-left: 0 !important;
 }
 
-/* Implementation detail */
+
 .outline-content li:has(.ty-outline-hit) .outline-item > .outline-label {
     padding: 8px 10px !important;
 }
 
-/* =========================================
-   Theme Section
-   ========================================= */
 
-/* Implementation detail */
+
 .md-toc {
     margin: 16px 0 0 0;
     font-size: 14px;
 }
 
-/* Implementation detail */
+
 .md-toc-content {
     position: relative;
     margin: 0 0 0 3px;
     padding: 0 !important;
 }
 
-/* Implementation detail */
+
 .md-toc-content:before {
     content: '';
     position: absolute;
@@ -2175,13 +2079,13 @@ li > .outline-item:hover::before,
     border-left: 1px solid var(--button-bg-color);
 }
 
-/* Implementation detail */
+
 .md-toc:focus .md-toc-content {
     margin: 0 !important;
     border: none !important;
 }
 
-/* Implementation detail */
+
 .md-toc-content .md-toc-item {
     position: relative;
     padding: 6px 0;
@@ -2190,7 +2094,7 @@ li > .outline-item:hover::before,
     transition: background 0.1s ease;
 }
 
-/* Implementation detail */
+
 .md-toc-content .md-toc-item:before {
     content: '';
     position: absolute;
@@ -2203,27 +2107,27 @@ li > .outline-item:hover::before,
     border-radius: 50%;
 }
 
-/* Implementation detail */
+
 .md-toc-content .md-toc-h1::before {
     background: var(--LOGO-color);
 }
 
-/* Implementation detail */
+
 .md-toc-item a.md-toc-inner:hover {
     text-decoration: none;
 }
 
-/* Implementation detail */
+
 .md-toc-item a {
     padding-left: 18px !important;
 }
 
-/* Implementation detail */
+
 .md-toc-content .md-toc-h1 a {
     padding-left: 20px;
 }
 
-/* Implementation detail */
+
 #write div.md-toc-tooltip {
     z-index: 100;
     top: -52px;
@@ -2232,7 +2136,7 @@ li > .outline-item:hover::before,
     padding: 3px 0;
 }
 
-/* Implementation detail */
+
 #write div.md-toc-tooltip .md-delete-toc {
     margin: 0 !important;
     padding: 0 10px;
@@ -2244,52 +2148,52 @@ li > .outline-item:hover::before,
     color: var(--sidebar-font-color);
 }
 
-/* Implementation detail */
+
 #write .md-toc-h1 a.md-toc-inner {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--sidebar-font-color) !important;
 }
 
-/* Implementation detail */
+
 #write a.md-toc-inner {
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--sidebar-font-color);
 }
 
-/* Implementation detail */
 
-/* Implementation detail */
+
+
 .md-toc-content .md-toc-item {
     cursor: pointer;
     transition: background 0.1s ease;
     border-radius: 4px;
 }
 
-/* Implementation detail */
+
 .md-toc-content .md-toc-item:hover {
     background: var(--hover-color);
 }
 
-/* Implementation detail */
+
 .md-toc-content .md-toc-item:hover::before {
     background: var(--LOGO-color);
 }
 
-/* Implementation detail */
+
 .md-toc-item:hover a.md-toc-inner {
     color: var(--font-color) !important;
     text-decoration: none;
 }
 
-/* Implementation detail */
+
 .md-toc-item:hover a.md-toc-inner code {
     background: var(--hover-color);
     color: var(--font-color);
 }
 
-/* Implementation detail */
+
 .md-toc-item a.md-toc-inner::after {
     content: '';
     position: absolute;
@@ -2307,7 +2211,6 @@ li > .outline-item:hover::before,
 
 
 @media print {
-    /* ---------- Theme Section ---------- */
     #write ul,
     #write ol,
     .write ul,
@@ -2387,7 +2290,6 @@ li > .outline-item:hover::before,
         border-bottom: 1px solid var(--table-th-border);
     }
 
-    /* ---------- Theme Section ---------- */
     code {
         break-inside: avoid;
         page-break-inside: avoid;
@@ -2419,7 +2321,7 @@ li > .outline-item:hover::before,
     content: none !important;
 }
 
-/* Implementation detail */
+
 .mac-os .info-panel-tab-wrapper,
 .mac-seamless-mode .info-panel-tab-wrapper {
     display: none !important;
@@ -2454,11 +2356,8 @@ li > .outline-item:hover::before,
     overflow: auto !important;
 }
 
-/* =========================================
-   Theme Section
-   ========================================= */
 
-/* Implementation detail */
+
 .unibody-window .info-panel-tab-title {
     line-height: normal !important;
     transform: translateY(0) !important;
@@ -2468,7 +2367,7 @@ li > .outline-item:hover::before,
     transform: scale(0.97) !important;
 }
 
-/* Implementation detail */
+
 .unibody-window #w-traffic-lights .toolbar-icon.btn.hover,
 .unibody-window #w-traffic-lights .toolbar-icon.btn:hover,
 .unibody-window #top-titlebar #w-close:hover {
@@ -2477,12 +2376,9 @@ li > .outline-item:hover::before,
     color: var(--LOGO-color) !important;
 }
 
-/* =========================================
-   Theme Section
-   ========================================= */
 
 .megamenu-opened header {
-    background-image: none!important;;
+    background-image: none!important;
 }
 
 .unibody-window {
@@ -2527,25 +2423,11 @@ li > .outline-item:hover::before,
     letter-spacing: 0;
 }
 
-/* Implementation detail */
+
 
 .unibody-window #megamenu-back-btn {
     display: none!important;
-    /* margin-left: 10px;
-    border: none!important;
-    color: var(--font-color) !important; */
 }
-
-/* .unibody-window #megamenu-back-btn:hover {
-    border-color: none !important;
-} */
-
-/* .unibody-window #megamenu-back-btn > i {
-    display: block;
-    color: inherit !important;
-    font-size: 16px;
-    line-height: 28px;
-} */
 
 .unibody-window #megamenu-menu-list {
     padding: 0 8px !important;
@@ -2882,7 +2764,7 @@ li > .outline-item:hover::before,
     }
 }
 
-/* Implementation detail */
+
 .unibody-window {
     --claude-mega-font: "霞鹜文楷", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", Arial, "Helvetica Neue", Helvetica, sans-serif;
     --claude-mega-slider-bg:
@@ -2991,7 +2873,7 @@ li > .outline-item:hover::before,
     border-radius: 20px !important;
 }
 
-/* Implementation detail */
+
 .unibody-window {
     --claude-mega-menu-hover-bg:
         linear-gradient(135deg, rgba(255, 255, 255, 0.68), rgba(239, 241, 232, 0.42)),
@@ -3047,7 +2929,7 @@ li > .outline-item:hover::before,
     transition: color 0.2s ease;
 }
 
-/* Implementation detail */
+
 .unibody-window #megamenu-menu-list > li > a span {
     display: inline-block;
     transition:
@@ -3129,37 +3011,26 @@ li > .outline-item:hover::before,
         
             /* Blockquote */
             --quote-font-color: #c2c0b6;
-            --quote-boder: #dedcd126;
+            --quote-border: #dedcd126;
         
-            /* Accent */
-            --LOGO-color: #D97757;
-        
+
             /*--- Shadow ---*/
             --border-100: 51 16.5% 84.5%;
             --border-200: 51 16.5% 84.5%;
             --border-300: 51 16.5% 84.5%;
-            --always-black: 0 0% 0%;
-            --box-shadow-search: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgb(0 0 0 / .25);
             --box-shadow-userinput: 0 20px 52px -26px rgb(0 0 0 / 58%), 0 8px 20px -14px rgb(0 0 0 / 42%), 0 0 0 0.5px hsla(var(--border-300) / 0.18);
             --box-shadow-userinput-hover: 0 24px 62px -28px rgb(0 0 0 / 66%), 0 10px 24px -14px rgb(0 0 0 / 48%), 0 0 0 0.5px hsla(var(--border-200) / 0.28);
             --box-shadow-userinput-focus: 0 26px 68px -28px rgb(0 0 0 / 72%), 0 12px 28px -14px rgb(0 0 0 / 54%), 0 0 0 0.5px hsla(var(--border-200) / 0.32);
+
             /*--- Font ---*/
-            --font-serif: "霞鹜新致宋", Georgia, "Times New Roman", serif;
-            --font-sans: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", Arial, "Helvetica Neue", Helvetica, sans-serif;
-            --font-mono: "Fira Code", "Source Code Pro", Consolas, Inconsolata, "Cascadia Code", Monaco, "Ubuntu Mono", "霞鹜文楷", monospace;
             --font-weight: 360;
             --font-strong: 530;
             --pre-inputfont-weight: 400;
             --sidebar-font-weight: 400;
-            --sidebar-width: 475px;             /* Default sidebar width */
-        
-            /*--- Radius (reference) ---*/
-            --raduis-8: 8px;
-            --raduis-12: 12px;
-            --raduis-20: 20px;
-        
+
             /*--- Replacement ---*/
             --text-color: var(--sidebar-font-color);
+
         
             /*--- Mermaid dark theme ---*/
             --mermaid-theme: dark;
